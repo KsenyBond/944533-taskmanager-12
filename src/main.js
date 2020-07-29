@@ -382,7 +382,12 @@ const boardElement = siteMainElement.querySelector(`.board`);
 const taskListElement = boardElement.querySelector(`.board__tasks`);
 
 render(taskListElement, createTaskEditTemplate(), `afterbegin`);
-for (let i = 0; i < TASKS_NUMBER; i++) {
-  render(taskListElement, createTaskTemplate(), `beforeend`);
-}
+
+const renderTask = (count) => {
+  for (let i = 0; i < count; i++) {
+    render(taskListElement, createTaskTemplate(), `beforeend`);
+  }
+};
+
+renderTask(TASKS_NUMBER);
 render(boardElement, createLoadMoreButtonTemplate(), `beforeend`);
