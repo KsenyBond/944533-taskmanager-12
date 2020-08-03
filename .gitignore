@@ -1,3 +1,5 @@
+* text eol=lf
+
 # Файлы и папки операционной системы
 .DS_Store
 Thumbs.db
