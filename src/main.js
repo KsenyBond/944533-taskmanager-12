@@ -27,7 +27,7 @@ render(siteMainElement, createBoardTemplate(), `beforeend`);
 const boardElement = siteMainElement.querySelector(`.board`);
 const taskListElement = boardElement.querySelector(`.board__tasks`);
 
-render(taskListElement, createTaskEditTemplate(), `afterbegin`);
+render(taskListElement, createTaskEditTemplate(tasks[0]), `afterbegin`);
 
 const renderTask = (count) => {
   for (let i = 1; i < Math.min(count, TASK_COUNT_PER_STEP); i++) {
@@ -44,7 +44,7 @@ if (tasks.length > TASK_COUNT_PER_STEP) {
 
   const loadMoreButton = boardElement.querySelector(`.load-more`);
 
-  loadMoreButton.addEventListener(`click`, (evt) => {
+  const loadMoreButtonClickHandler = (evt) => {
     evt.preventDefault();
 
     tasks
@@ -56,5 +56,7 @@ if (tasks.length > TASK_COUNT_PER_STEP) {
     if (renderedTaskCount >= tasks.length) {
       loadMoreButton.remove();
     }
-  });
+  };
+
+  loadMoreButton.addEventListener(`click`, loadMoreButtonClickHandler);
 }
