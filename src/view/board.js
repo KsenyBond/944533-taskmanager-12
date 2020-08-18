@@ -1,15 +1,29 @@
+import {createElement} from "../utils.js";
+
 const createBoardTemplate = () => {
   return (
-    `<section class="board container">
-      <div class="board__filter-list">
-        <a href="#" class="board__filter">SORT BY DEFAULT</a>
-        <a href="#" class="board__filter">SORT BY DATE up</a>
-        <a href="#" class="board__filter">SORT BY DATE down</a>
-      </div>
-
-      <div class="board__tasks"></div>
-    </section>`
+    `<section class="board container"></section>`
   );
 };
 
-export {createBoardTemplate};
+export default class Board {
+  constructor() {
+    this._element = null;
+  }
+
+  get template() {
+    return createBoardTemplate();
+  }
+
+  get element() {
+    if (!this._element) {
+      this._element = createElement(this.template);
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
