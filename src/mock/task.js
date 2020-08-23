@@ -1,5 +1,5 @@
 import {COLORS, MAX_DAYS_GAP} from "../const.js";
-import {getRandomInteger} from "../utils.js";
+import {getRandomInteger} from "../utils/common.js";
 
 const generateDescription = () => {
   const descriptions = [
