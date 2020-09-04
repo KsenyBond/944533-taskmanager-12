@@ -1,6 +1,8 @@
 import {COLORS, MAX_DAYS_GAP} from "../const.js";
 import {getRandomInteger} from "../utils/common.js";
 
+const generateId = () => Date.now() + parseInt(Math.random() * 10000, 10);
+
 const generateDescription = () => {
   const descriptions = [
     `Изучить теорию`,
@@ -62,6 +64,7 @@ const generateTask = () => {
     };
 
   return {
+    id: generateId(),
     description: generateDescription(),
     dueDate,
     repeating,
